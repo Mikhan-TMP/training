@@ -3,7 +3,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use App\Models\HistoryModel;
-// date_default_timezone_set('Asia/Manila'); //error on the IP if uncommented
+date_default_timezone_set('Asia/Manila'); //error on the IP if uncommented
 
 class SigninController extends Controller
 {
