@@ -1,68 +1,101 @@
-# CodeIgniter 4 Application Starter
+# User Management System
 
-## What is CodeIgniter?
+The User Management System is a secure and user-friendly application designed to streamline user interactions and enhance account management. Key features of the system include:
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+- **User Login**: Users can easily log in to their accounts using their credentials. The login process is secure, ensuring that user data is protected.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- **User Signup**: New users can create accounts by filling out a simple registration form. This process includes validation to ensure that all required fields are completed correctly.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- **Profile Management**: Users have the ability to edit their profiles, allowing them to update personal information such as their name, email address, and profile picture. This feature enhances user experience by enabling personalization.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Password Configuration**: Users can configure their passwords, including the ability to change their existing passwords for added security. The system provides guidance on creating strong passwords and includes password recovery options.
 
-## Installation & updates
+The User Management System is built with a focus on security, usability, and flexibility, making it an essential tool for managing user accounts effectively.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## Table of Contents
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+- [User Management System](#User-Management-System)
+  - [Table of Contents](#table-of-contents)
+  - [Project Structure](#project-structure)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Usage](#usage)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+  - [License](#license)
 
-## Setup
+## Project Structure
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+The main files and directories in this project:
 
-## Important Change with index.php
+- **.env**: Environment configuration file.
+- **.gitignore**: Lists files and folders to exclude from version control.
+- **app/**: Contains application code and business logic.
+- **builds/**: (Optional) Directory for storing build files or deployment artifacts.
+- **composer.json** & **composer.lock**: Manage project dependencies via Composer.
+- **LICENSE**: Project license details.
+- **phpunit.xml.dist**: Configuration file for PHPUnit.
+- **preload.php**: Used to preload essential files at the start of each request.
+- **public/**: Public web root directory.
+- **spark**: CodeIgniter's command-line tool.
+- **tests/**: Contains unit and feature tests.
+- **vendor/**: Contains Composer-managed dependencies.
+- **writable/**: For writable files such as logs and cache.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## Requirements
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- **PHP** 7.4 or higher
+- **Composer** for dependency management
+- Web server (Apache, Nginx, etc.)
+- MySQL or another supported database
 
-**Please** read the user guide for a better explanation of how CI4 works!
+## Installation
 
-## Repository Management
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
+   cd your-repo
+2. **Install dependencies**:
+   ```bash
+   composer install
+3. **Setup Environment variables**:
+   Copy .env.example to .env and configure your environment varialbes (database connection, base URL, etc.)
+   ``` bash
+   cp .env.example .env
+4. **Generate the application key**: 
+   ```bash
+   php spark key:generate
+5. **Run Migrations(if applicable):
+   ```bash
+   php spark migrate
+6. **Set an appropriate permissions**: 
+   Make sure the writable and public/uploads (or other storage folders) are writeable by the web server.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+## Configuration
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+- Open the **.env** file to configure environment-specific settings like database connection, applications URL, and logging.
 
-## Server Requirements
+## Usage
+1. **Start the development server**:
+   ```bash
+   php spark serve
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+## Testing
+- This project uses PHPUnit for testing
+- To run tests, use the following command:
+   ``` bash
+   vendor/bin/phpunit
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+## Deployment
+1. **Build the Project**: Use any build steps defined in the builds directory or integrate with CI/CD as required.
+2. **Deploy to a web server**: 
+    - Upload the project files to your server.
+    - Make sure **.env** and writable folders are properly configured on the server.
+    - Run command to install production dependencies only.
+      ``` bash
+         composer install --no-dev
+   - Migrate the database if there are pending migrations.
 
-> [!WARNING]
-> The end of life date for PHP 7.4 was November 28, 2022.
-> The end of life date for PHP 8.0 was November 26, 2023.
-> If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> The end of life date for PHP 8.1 will be November 25, 2024.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+## License
+This project is licensed under the terms of the License file
