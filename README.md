@@ -10,7 +10,7 @@ The User Management System is a secure and user-friendly application designed to
 
 - **Password Configuration**: Users can configure their passwords, including the ability to change their existing passwords for added security. The system provides guidance on creating strong passwords and includes password recovery options.
 
-The User Management System is built with a focus on security, usability, and flexibility, making it an essential tool for managing user accounts effectively.
+The User Management System is built with a focus on security, usability, and flexibility, making it an essential tool for managing user accounts effectively!
 
 ## Table of Contents
 
